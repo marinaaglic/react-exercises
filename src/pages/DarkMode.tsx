@@ -1,3 +1,8 @@
+/* TASK
+Implement a component that allows you to change from light to 
+dark mode and back again
+*/
+
 const DarkMode = () => {
   return (
     <div className="page">
