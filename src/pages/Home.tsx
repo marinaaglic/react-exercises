@@ -1,5 +1,9 @@
 const Home = () => {
-  return <h2>Homepage placeholder</h2>;
+  return (
+    <div className="navbar-home">
+      <h2>Homepage</h2>;
+    </div>
+  );
 };
 
 export default Home;
