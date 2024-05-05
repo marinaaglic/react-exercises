@@ -1,6 +1,6 @@
-/*import Color from "../components/Color";
+import Color from "../components/Color";
 
- const colors = [
+const colors = [
   {
     hex: "#91A6FF",
     name: "Cornflower Blue",
@@ -16,14 +16,15 @@
   {
     hex: "#FF5154",
     name: "Tart Orange",
-  }, 
-];*/
+  },
+];
 
 const ColorRenderer = () => {
   return (
     <h2>
-      Use the Color component to render each item in the colors array on the
-      page
+      {colors.map((color) => (
+        <Color key={color.name} hex={color.hex} name={color.name} />
+      ))}
     </h2>
   );
 };
