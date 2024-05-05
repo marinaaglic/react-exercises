@@ -1,7 +1,7 @@
 interface ColorProps {
   hex: string;
   name: string;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const Color = ({ hex, name, onClick }: ColorProps) => {
