@@ -6,12 +6,36 @@ Reaquirements:
 -When the dog button is clicked, fetch a new dog image and render it on the UI instead
 */
 
+import { useEffect, useState } from "react";
+
+type ResponseType = {
+  message: string;
+  status: string;
+};
+
 const DogPics = () => {
+  const [data, setData] = useState<ResponseType>({
+    message: "",
+    status: "success",
+  });
+
+  const fetchDogPic = async () => {
+    try {
+      const response = await fetch("https://dog.ceo/api/breeds/image/random");
+      const jsonResponse: ResponseType = await response.json();
+      setData(jsonResponse);
+    } catch (error) {
+      console.log("Error fetching data ", error);
+    }
+  };
+  useEffect(() => {
+    fetchDogPic();
+  }, []);
   // API: https://dog.ceo/dog-api/
   return (
     <div className="dog-pics">
-      <img src="https://images.dog.ceo/breeds/spaniel-cocker/n02102318_4172.jpg" />
-      <button>🐶</button>
+      {data.message && <img src={data.message} alt="A random dog" />}
+      <button onClick={fetchDogPic}>🐶</button>
     </div>
   );
 };
