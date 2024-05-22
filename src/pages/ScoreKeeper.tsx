@@ -12,14 +12,36 @@ Requirements:
 
 import { useEffect, useState } from "react";
 
+const LOCAL_STORAGE_KEY = "score-keeper";
 const ScoreKeeper = () => {
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(() => {
+    const savedScore = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedScore ?? "0";
+  });
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, score?.toString());
+  }, [score]);
 
   return (
     <div>
       <h1>Your score is: {score}</h1>
-      <button onClick={() => setScore((prevScore) => prevScore + 1)}>+</button>
-      <button onClick={() => setScore((prevScore) => prevScore - 1)}>-</button>
+      <button
+        onClick={() =>
+          setScore((prevScore) => (parseInt(prevScore, 10) + 1).toString())
+        }
+      >
+        +
+      </button>
+      <button
+        onClick={() =>
+          setScore((prevScore) =>
+            Math.max(parseInt(prevScore, 10) - 1, 0).toString()
+          )
+        }
+      >
+        -
+      </button>
     </div>
   );
 };
