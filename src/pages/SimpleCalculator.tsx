@@ -8,35 +8,46 @@ Requirements:
 - use UseReducer to store and modify your data
 */
 
-const initialState = {};
-
-const reducer = (state, action) => {};
+import { useReducer } from "react";
+import { calculatorReducer, initialState } from "../hooks/calculatorReducer";
 
 const SimpleCalculator = () => {
+  const [state, dispatch] = useReducer(calculatorReducer, initialState);
   const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <div>
       <div>
-        <h2>Number 1</h2>
+        <h2>{state.number1}</h2>
         {numbers.map((number) => (
-          <button key={number}>{number}</button>
+          <button
+            key={number}
+            onClick={() => dispatch({ type: "SET_NUMBER1", payload: number })}
+          >
+            {number}
+          </button>
         ))}
       </div>
       <div>
-        <h2>Number 2</h2>
+        <h2>{state.number2}</h2>
         {numbers.map((number) => (
-          <button key={number}>{number}</button>
+          <button
+            key={number}
+            onClick={() => dispatch({ type: "SET_NUMBER2", payload: number })}
+          >
+            {number}
+          </button>
         ))}
       </div>
       <div>
         <h2>Actions</h2>
-        <button>+</button>
-        <button>-</button>
-        <button>c</button>
+        <button onClick={() => dispatch({ type: "ADD" })}>+</button>
+        <button onClick={() => dispatch({ type: "SUBTRACT" })}>-</button>
+        <button onClick={() => dispatch({ type: "CLEAR" })}>c</button>
       </div>
       <div>
         <h2>Result:</h2>
+        <p>{state.result}</p>
       </div>
     </div>
   );
