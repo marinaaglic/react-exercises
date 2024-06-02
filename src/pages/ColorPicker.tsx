@@ -1,12 +1,6 @@
-/* TASK
-Create a color picking app so the user can select the page's background color
-Requirements:
-- Upon clicking a color, change the whole page's background to be that color
-- Make sure to use the Color subcomponent
-*/
-
 import { useState } from "react";
 import Color from "../components/Color";
+import { Link } from "react-router-dom";
 
 const colors = [
   {
@@ -35,15 +29,28 @@ export default function ColorPicker() {
     setBackgroundColor(hex);
   }
   return (
-    <div className="page" style={{ backgroundColor }}>
-      {colors.map((color) => (
-        <Color
-          key={color.hex}
-          hex={color.hex}
-          name={color.name}
-          onClick={() => handleClick(color.hex)}
-        />
-      ))}
-    </div>
+    <>
+      <div className="page" style={{ backgroundColor }}>
+        <h2>COLOR PICKER</h2>
+        <p>
+          Create a color picking app so the user can select the page's
+          background color Requirements:
+        </p>
+        <p>
+          Upon clicking a color, change the whole page's background to be that
+          color.
+        </p>
+        <p>Make sure to use the Color subcomponent.</p>
+        {colors.map((color) => (
+          <Color
+            key={color.hex}
+            hex={color.hex}
+            name={color.name}
+            onClick={() => handleClick(color.hex)}
+          />
+        ))}
+        <Link to="/">Back</Link>
+      </div>
+    </>
   );
 }
