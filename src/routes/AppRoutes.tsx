@@ -10,6 +10,7 @@ import PixelArt from "../pages/PixelArt";
 import ScoreKeeper from "../pages/ScoreKeeper";
 import ShoppingCart from "../pages/ShoppingCart";
 import SimpleCalculator from "../pages/SimpleCalculator";
+import "../styles/AppRoutes.css";
 
 const AppRoutes = () => {
   return (
