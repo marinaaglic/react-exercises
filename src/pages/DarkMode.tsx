@@ -15,7 +15,7 @@ const DarkMode = () => {
 
   return (
     <>
-      <h2>Dark Mode</h2>
+      <h2>DARK MODE</h2>
       <p>
         Implement a component that allows you to change from light to dark mode
         and back again
