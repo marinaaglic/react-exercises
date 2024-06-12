@@ -1,11 +1,5 @@
-/* TASK
-Focus an input upon a component mounting
-useRef - for interaction with the actual DOM
-Requirements:
-- Upon page load, focus the input
-*/
-
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
 const FocusInput = () => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -26,6 +20,7 @@ const FocusInput = () => {
       <p>Upon page load, focus the input</p>
       <label htmlFor="focused-input">Focus me on page load!</label>
       <input name="focused-input" ref={inputRef}></input>
+      <Link to="/">Back</Link>
     </div>
   );
 };
