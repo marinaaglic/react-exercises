@@ -16,8 +16,8 @@ const FocusInput = () => {
         Focus an input upon a component mounting useRef - for interaction with
         the actual DOM
       </p>
-      <p>Requirements:</p>
-      <p>Upon page load, focus the input</p>
+      <ul>Requirements:</ul>
+      <li>Upon page load, focus the input</li>
       <label htmlFor="focused-input">Focus me on page load!</label>
       <input name="focused-input" ref={inputRef}></input>
       <Link to="/">Back</Link>

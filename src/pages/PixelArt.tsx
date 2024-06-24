@@ -17,13 +17,13 @@ const PixelArt = () => {
         Instead of having to pass a prop down multiple levels, you can use
         Context.
       </li>
-      <p>Requirements:</p>
-      <p>
+      <ul>Requirements:</ul>
+      <li>
         When a color is clicked, taht color becomes the drawing color. Then,
         when one of the grid squares is clicked, it should be colored in with
         the drawing color.
-      </p>
-      <p>Use React Context to share state between your components</p>
+      </li>
+      <li>Use React Context to share state between your components</li>
       <ColorContext.Provider
         value={{ selectedColor, setColor: setSelectedColor }}
       >
