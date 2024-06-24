@@ -1,16 +1,5 @@
-/* TASK
-Build a scorekeeping application
-Usin localStorage to store data in the browser
-- localStorage.getItem(key)
-- localStorage.setItem(key, value)
-Requirements:
--Use localStorage to store the score so that it persists when you come back
-    to the page
--You should be able to refresh the page and still see the score from the
-    previous render
-*/
-
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const LOCAL_STORAGE_KEY = "score-keeper";
 const ScoreKeeper = () => {
@@ -24,25 +13,44 @@ const ScoreKeeper = () => {
   }, [score]);
 
   return (
-    <div>
-      <h1>Your score is: {score}</h1>
-      <button
-        onClick={() =>
-          setScore((prevScore) => (parseInt(prevScore, 10) + 1).toString())
-        }
-      >
-        +
-      </button>
-      <button
-        onClick={() =>
-          setScore((prevScore) =>
-            Math.max(parseInt(prevScore, 10) - 1, 0).toString()
-          )
-        }
-      >
-        -
-      </button>
-    </div>
+    <>
+      <div>
+        <h2>SCORE KEEPER</h2>
+        <ul>
+          Build a scorekeeping application Usin localStorage to store data in
+          the browser:
+          <li>localStorage.getItem(key)</li>
+          <li>localStorage.setItem(key, value)</li>
+        </ul>
+        <ul>Requirements:</ul>
+        <li>
+          Use localStorage to store the score so that it persists when you come
+          back to the page
+        </li>
+        <li>
+          You should be able to refresh the page and still see the score from
+          the previous render
+        </li>
+        <h1>Your score is: {score}</h1>
+        <button
+          onClick={() =>
+            setScore((prevScore) => (parseInt(prevScore, 10) + 1).toString())
+          }
+        >
+          +
+        </button>
+        <button
+          onClick={() =>
+            setScore((prevScore) =>
+              Math.max(parseInt(prevScore, 10) - 1, 0).toString()
+            )
+          }
+        >
+          -
+        </button>
+      </div>
+      <Link to="/">Back</Link>
+    </>
   );
 };
 

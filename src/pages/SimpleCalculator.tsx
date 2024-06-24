@@ -1,15 +1,6 @@
-/* TASK
-Build a simple calculator
-useReducer - moving state management outside of the component
-Requirements:
-- Implement the logic so that two numbers can be selected
-- Implement the logic to add these two selected numbers together. Same for subtraction
-- Implement a clear function which will reset botch the numbers to 0
-- use UseReducer to store and modify your data
-*/
-
 import { useReducer } from "react";
 import { calculatorReducer, initialState } from "../hooks/calculatorReducer";
+import { Link } from "react-router-dom";
 
 const SimpleCalculator = () => {
   const [state, dispatch] = useReducer(calculatorReducer, initialState);
@@ -17,6 +8,21 @@ const SimpleCalculator = () => {
 
   return (
     <div>
+      <h2>SIMPLE CALCULATOR</h2>
+      <p>
+        Build a simple calculator useReducer - moving state management outside
+        of the component
+      </p>
+      <ul>Requirements:</ul>
+      <li>Implement the logic so that two numbers can be selected</li>
+      <li>
+        Implement the logic to add these two selected numbers together. Same for
+        subtraction
+      </li>
+      <li>
+        Implement a clear function which will reset botch the numbers to 0
+      </li>
+      <li>use UseReducer to store and modify your data</li>
       <div>
         <h2>{state.number1}</h2>
         {numbers.map((number) => (
@@ -49,6 +55,7 @@ const SimpleCalculator = () => {
         <h2>Result:</h2>
         <p>{state.result}</p>
       </div>
+      <Link to="/">Back</Link>
     </div>
   );
 };

@@ -29,15 +29,15 @@ const DogPics = () => {
     <div className="dog-pics">
       <h2>Dog pics</h2>
       <p>Use a dog picture API to display dog images in React</p>
-      <p>Reaquirements:</p>
-      <p>
+      <ul>Requirements:</ul>
+      <li>
         Use the dog.ceo to fetch a random dog image and display that image on
         page load instead of the hardcoded one there now
-      </p>
-      <p>
+      </li>
+      <li>
         When the dog button is clicked, fetch a new dog image and render it on
         the UI instead
-      </p>
+      </li>
       {data.message && <img src={data.message} alt="A random dog" />}
       <button onClick={fetchDogPic}>🐶</button>
       <Link to="/">Back</Link>

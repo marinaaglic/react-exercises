@@ -1,14 +1,6 @@
-/* TASK 
-Build a shopping cart that displays total price when adding items.
-Requireents:
-- Implement the Add to Cart logic, add an item to the cart when the
-  button is clicked
-- Implement the + and - buttons so that you can add or remove items from the cart
-- Implement the total sum at the bottom of the page
-*/
-
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 interface Item {
   name: string;
@@ -77,7 +69,18 @@ const ShoppingCart = () => {
 
   return (
     <div>
-      <h1>Shopping Cart</h1>
+      <h2>SHOPPING CART</h2>
+      <p>Build a shopping cart that displays total price when adding items.</p>
+      <ul>Requirements:</ul>
+      <li>
+        Implement the Add to Cart logic, add an item to the cart when the button
+        is clicked
+      </li>
+      <li>
+        Implement the + and - buttons so that you can add or remove items from
+        the cart
+      </li>
+      <li>Implement the total sum at the bottom of the page</li>
       <div className="cart">
         <div className="items">
           <h2>Items</h2>
@@ -111,6 +114,7 @@ const ShoppingCart = () => {
       <div className="total">
         <h2>Total: ${calculateTotal()}</h2>
       </div>
+      <Link to="/">Back</Link>
     </div>
   );
 };
